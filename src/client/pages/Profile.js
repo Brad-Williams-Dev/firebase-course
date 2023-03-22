@@ -56,6 +56,7 @@ const Profile = () => {
           </>
         )}
       </LoadingError>
+      {/* Add toggle for if user is admin */}
     </main>
   );
 };

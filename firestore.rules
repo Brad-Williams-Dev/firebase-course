@@ -17,6 +17,35 @@ service cloud.firestore {
     }
 
     // Add new rules here
-   
+     
+    // Allow any authenticated user to create a to-do item for themselves
+       
+    match /todos/{docId} {
+      allow read: if request.auth != null;
+      allow create, update, delete: if request.auth != null && request.auth.uid == request.auth.uid;
+    }
+
+    //Any authenticated user may create a profile and view other users' profiles.
+
+    match /users/{document=**} {
+      allow read: if request.auth != null;
+    }
+    
+   // Any authenticated user is allowed to edit their own profile.
+
+    match /users/{docID} {
+      allow update: if request.auth.uid == resource.data.uid;
+    }  
+
+  //Admin users can edit any user's profile.
+
+   match /users/{docID} {
+    allow update: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true; 
+  }
+
+
+  //Only the admin users can make other users admins.
+
+  // COME BACK TO THIS ONE
   }
 }
