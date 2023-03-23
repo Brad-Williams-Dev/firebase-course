@@ -16,6 +16,7 @@ const Layout = ({ children }) => {
   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
   const { user } = useUser();
 
+
   if (user?.loading) return null;
 
   const navigation = [

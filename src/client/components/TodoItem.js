@@ -38,6 +38,7 @@ const Todo = ({ item }) => {
         >
           <span className="sr-only">Delete Item</span>
           <XIcon className="block h-4 w-4" aria-hidden="true" />
+
         </button>
       </div>
     </fieldset>

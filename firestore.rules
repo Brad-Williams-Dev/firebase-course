@@ -16,8 +16,12 @@ service cloud.firestore {
       resource.data.authorId == request.auth.uid);
     }
 
+  
+
     // Add new rules here
-     
+
+ 
+
     // Allow any authenticated user to create a to-do item for themselves
        
     match /todos/{docId} {
@@ -37,15 +41,21 @@ service cloud.firestore {
       allow update: if request.auth.uid == resource.data.uid;
     }  
 
+
+
   //Admin users can edit any user's profile.
 
    match /users/{docID} {
     allow update: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true; 
   }
 
+   //Only the admin users can make other users admins.
+   // I was not able to figure this out...
+   // Made the admin toggle conditionally render to only show if the user is an admin.
 
-  //Only the admin users can make other users admins.
+    match /users/{docsID} {
+      allow update: if request.auth.uid != request.auth.uid && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
 
-  // COME BACK TO THIS ONE
   }
 }
