@@ -7,13 +7,12 @@ import 'firebase/firestore';
 
 // Replace this with your app's configuration from Firebase Console
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.FIREBASE_APP_ID,
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyCl85tAsJ7fZfSHU113mNN9IIFgEiE-5Hc",
+  authDomain: "fir-starter-9f8bd.firebaseapp.com",
+  projectId: "fir-starter-9f8bd",
+  storageBucket: "fir-starter-9f8bd.appspot.com",
+  messagingSenderId: "423126965001",
+  appId: "1:423126965001:web:68cbb71c288d6d187c11d8"
 };
 
 firebase.initializeApp(firebaseConfig);

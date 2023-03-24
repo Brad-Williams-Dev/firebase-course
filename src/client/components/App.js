@@ -34,7 +34,7 @@ const App = () => (
           </Route>
         </Switch>
       </Layout>
-      <Toaster />
+      <Toaster />ƒ
     </UserProvider>
   </Router>
 );
